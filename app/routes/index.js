@@ -49,13 +49,13 @@ var exports = function(app, db) {
     app.get("/contributions", isLoggedIn, contributionsHandler.displayContributions);
     app.post("/contributions", isLoggedIn, contributionsHandler.handleContributionsUpdate);
 
-    // Benefits Page
-    app.get("/benefits", isLoggedIn, benefitsHandler.displayBenefits);
-    app.post("/benefits", isLoggedIn, benefitsHandler.updateBenefits);
-    /* Fix for A7 - checks user role to implement  Function Level Access Control
+    // // Benefits Page
+    // app.get("/benefits", isLoggedIn, benefitsHandler.displayBenefits);
+    // app.post("/benefits", isLoggedIn, benefitsHandler.updateBenefits);
+    // Fix for A7 - checks user role to implement  Function Level Access Control
      app.get("/benefits", isLoggedIn, isAdmin, benefitsHandler.displayBenefits);
      app.post("/benefits", isLoggedIn, isAdmin, benefitsHandler.updateBenefits);
-     */
+
 
     // Allocations Page
     app.get("/allocations/:userId", isLoggedIn, allocationsHandler.displayAllocations);
@@ -64,11 +64,11 @@ var exports = function(app, db) {
     app.get("/memos", isLoggedIn, memosHandler.displayMemos);
     app.post("/memos", isLoggedIn, memosHandler.addMemos);
 
-    // Handle redirect for learning resources link
-    app.get("/learn", isLoggedIn, function(req, res, next) {
-        // Insecure way to handle redirects by taking redirect url from query string
-        return res.redirect(req.query.url);
-    });
+    // // Handle redirect for learning resources link
+    // app.get("/learn", isLoggedIn, function(req, res, next) {
+    //     // Insecure way to handle redirects by taking redirect url from query string
+    //     return res.redirect(req.query.url);
+    // });
 
     // Handle redirect for learning resources link
     app.get("/tutorial", function(req, res, next) {
